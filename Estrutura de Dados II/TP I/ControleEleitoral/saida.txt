@@ -1,18 +1,18 @@
-Voto computado, candidato 0 possui 0 voto(s).
-Voto computado, candidato 0 possui 0 voto(s).
+Voto computado, candidato 50 possui 1 voto(s).
+Voto computado, candidato 50 possui 1 voto(s).
 Voto não computado.
-Voto computado, candidato 0 possui 0 voto(s).
-Voto computado, candidato 0 possui 0 voto(s).
-Voto não computado.
-Voto não computado.
-Voto não computado.
-Voto não computado.
+Voto computado, candidato 50 possui 2 voto(s).
+Voto computado, candidato 344 possui 1 voto(s).
+Voto computado, candidato 50 possui 3 voto(s).
+Voto computado, candidato 566 possui 1 voto(s).
 Voto não computado.
 Voto não computado.
+Voto computado, candidato 50 possui 4 voto(s).
+Voto computado, candidato 50 possui 2 voto(s).
+Voto computado, candidato 556 possui 1 voto(s).
 Voto não computado.
 Voto não computado.
-Voto não computado.
-Voto não computado.
+Voto computado, candidato 544 possui 1 voto(s).
 Voto não computado.
 Voto não computado.
 Voto não computado.

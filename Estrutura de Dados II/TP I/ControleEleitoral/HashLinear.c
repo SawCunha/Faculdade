@@ -43,10 +43,9 @@ int inserirItemTHashLinear(THashLinear tabela, tipoVoto voto){
     posicao = hashLinear(tabela, voto.numeroCandidato);
 
     /*Verifica se o candidato já esta cadastrado, caso esteja, incrementa a quantidade de votos e retorna 1.*/
-    while(i <= tabela->M){
-        if(tabela->votos[posicao].numeroCandidato == voto.numeroCandidato && tabela->campoDeControle[posicao]){
-            tabela->votos[posicao].qtdDeVotosCandidato++;
-            return 1;
+    while(i <= tabela->M  && tabela->campoDeControle[posicao]){
+        if(tabela->votos[posicao].numeroCandidato == voto.numeroCandidato){
+            return 0;
         }
         posicao = (posicao + 1) % tabela->M;
         i++;
@@ -59,11 +58,31 @@ int inserirItemTHashLinear(THashLinear tabela, tipoVoto voto){
     /*Insere o elemento na posição válida caso este já não esteja inserido na tabela. Inicializa o campo de controle
       com 1 para sinalizar qua a posição está ocupada, computa o voto do candidato aumenta o quantidadeDados.*/
     tabela->votos[posicao] = voto;
-    tabela->votos[posicao].qtdDeVotosCandidato++;
     tabela->campoDeControle[posicao] = 1;
     tabela->quantidadeDados++;
     return 1;
 }/*int inserirItemTHashLinear(THashLinear tabela, tipoVoto voto)*/
+
+int atualizarItemTHashLinear(THashLinear tabela, unsigned int numeroCandidato){
+    unsigned int i = 1, posicao;
+    if(tabela->quantidadeDados == 0) return 0;
+
+    /*Recebe a possível posição retornada para a chave através da função de hash e seu respectivo
+      incremento que sera usado para procurar a chave na tabela.*/
+    posicao = hashLinear(tabela,numeroCandidato);
+
+    /*Caso o elemento não esteja na posição indicada, realiza uma busca na tabela.*/
+    while(i <= tabela->M){
+        if(tabela->votos[posicao].numeroCandidato == numeroCandidato && tabela->campoDeControle[posicao])
+        {
+            tabela->votos[posicao].qtdDeVotosCandidato++;
+            return 1;
+        }
+        posicao = (posicao + 1) % tabela->M;
+        i++;
+    }
+    return 0;
+}
 
 /*Pesquisa um elemento na tabela pela sua chave, caso encontre, retorna o valor encontrado
   por referência e retorna 1 sinalizando que a busca foi bem sucedica, caso não encontre, retorna
@@ -80,7 +99,7 @@ int pesquisarItemTHashLinear(THashLinear tabela, unsigned int chave, tipoVoto *v
     /*Verifica se o candidato já esta cadastrado, caso esteja, aumenta o voto recebido
      e retorna 1 avisando que o voto foi computado com sucesso.*/
     while(i <= tabela->M){
-        if(tabela->votos[posicao].numeroCandidato == voto->numeroCandidato && tabela->campoDeControle[posicao]){
+        if(tabela->votos[posicao].numeroCandidato == chave && tabela->campoDeControle[posicao]){
             (*voto) = tabela->votos[posicao];
             return 1;
         }
@@ -103,7 +122,7 @@ int removerItemTHashLinear(THashLinear tabela, unsigned int chave, tipoVoto *vot
     /*Verifica se o candidato já esta cadastrado, caso esteja, aumenta o voto recebido
     e retorna 1 avinsando que o voto foi computado com sucesso.*/
     while(i <= tabela->M){
-        if(tabela->votos[posicao].numeroCandidato == voto->numeroCandidato && tabela->campoDeControle[posicao]){
+        if(tabela->votos[posicao].numeroCandidato == chave && tabela->campoDeControle[posicao]){
             (*voto) = tabela->votos[posicao];
             if(tabela->votos[posicao].qtdDeVotosCandidato > 0)
                 tabela->votos[posicao].qtdDeVotosCandidato--;

@@ -208,3 +208,117 @@
 
 1430055736 source:c:\users\wagner\google drive\ifet - sistemas para internet\3º período\estrutura de dados ii\trabalhos\tp 1\controleeleitoral\arquivosaida.c
 
+1430067723 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\abp.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	"abp.h"
+
+1430067723 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\abp.h
+	"CedulaDeEleicao.h"
+
+1430067723 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\ceduladeeleicao.h
+
+1430067723 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\controleeleitoral.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ControleEleitoral.h"
+	"FuncoesAuxiliares.h"
+
+1430067723 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\controleeleitoral.h
+	"FuncoesAuxiliares.h"
+
+1430067723 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\funcoesauxiliares.h
+	"HashExternoLista.h"
+	"HashLinear.h"
+	"HashDuplo.h"
+	"Hash_ABP.h"
+	"HeapSort.h"
+
+1430067723 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\hashexternolista.h
+	"ListaEncadeada.h"
+	"CedulaDeEleicao.h"
+
+1430067723 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\listaencadeada.h
+	"CedulaDeEleicao.h"
+
+1430068290 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\hashlinear.h
+	"CedulaDeEleicao.h"
+
+1430067723 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\hashduplo.h
+	"CedulaDeEleicao.h"
+
+1430067723 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\hash_abp.h
+	"CedulaDeEleicao.h"
+	"abp.h"
+
+1430067723 c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\heapsort.h
+	"HashLinear.h"
+
+1430070175 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\funcoesauxiliares.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"FuncoesAuxiliares.h"
+	"HashExternoLista.h"
+	"HashLinear.h"
+	"HashDuplo.h"
+	"Hash_ABP.h"
+	"HeapSort.h"
+
+1430067723 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\hash_abp.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	"Hash_ABP.h"
+	"abp.h"
+	"CedulaDeEleicao.h"
+
+1430067723 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\hashduplo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"CedulaDeEleicao.h"
+	"HashDuplo.h"
+
+1430067723 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\hashexternolista.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<time.h>
+	"ListaEncadeada.h"
+	"CedulaDeEleicao.h"
+	"HashExternoLista.h"
+
+1430070010 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\hashlinear.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	"CedulaDeEleicao.h"
+	"HashLinear.h"
+
+1430067723 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\heapsort.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	"HeapSort.h"
+
+1430067723 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\listaencadeada.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"CedulaDeEleicao.h"
+	"ListaEncadeada.h"
+
+1430067723 source:c:\users\wagner\documents\github\faculdade\estrutura de dados ii\tp i\controleeleitoral\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"FuncoesAuxiliares.h"
+	"ControleEleitoral.h"
+

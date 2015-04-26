@@ -83,7 +83,7 @@ unsigned int pesquisarVotoPrefeitoTHLista(TabelaLista tabela, tipoChave chave){
   votos, a cedula contendo seu titulo e seu voto e a tabela na qual
   serao armazenados os votos.*/
 unsigned int cadastraVotoPrefeitoTHLista(TabelaLista tabela, cedulaEleitoral cedula, THashLinear prefeito){
-    tipoVoto voto;
+    tipoVoto voto, pesquisar;
     cedulaEleitoral auxiliar;
 
     /*Verifico se o titulo já votou para está categoria.*/
@@ -91,7 +91,7 @@ unsigned int cadastraVotoPrefeitoTHLista(TabelaLista tabela, cedulaEleitoral ced
 
     /*Atribui o valor para o tipoVoto que guardará as informações para apuração..*/
     voto.numeroCandidato = cedula.votoPrefeito;
-    voto.qtdDeVotosCandidato = 0;
+    voto.qtdDeVotosCandidato = 1;
     cedula.votoPrefeito = 1; /*Sinaliza que o candidato possui um voto.*/
 
     /*Verificar se o eleitor já está cadastrado (Se votou em outra categoria). Caso
@@ -105,7 +105,10 @@ unsigned int cadastraVotoPrefeitoTHLista(TabelaLista tabela, cedulaEleitoral ced
          inserirItemTabelaLista(tabela,cedula);
 
     /*Cadastra o voto. Caso ocorra algum erro, retorna 0.*/
-    if(!inserirItemTHashLinear(prefeito, voto)) return 0;
+    if(pesquisarItemTHashLinear(prefeito, voto.numeroCandidato,&pesquisar))
+        atualizarItemTHashLinear(prefeito,voto.numeroCandidato);
+    else
+        inserirItemTHashLinear(prefeito,voto);
     return 1;
 }
 
@@ -115,7 +118,7 @@ unsigned int cadastraVotoPrefeitoTHLista(TabelaLista tabela, cedulaEleitoral ced
   votos, a cedula contendo seu titulo e seu voto e a tabela na qual
   serao armazenados os votos.*/
 unsigned int cadastraVotoVereadorTHLista(TabelaLista tabela, cedulaEleitoral cedula, THashLinear vereador){
-    tipoVoto voto;
+    tipoVoto voto, pesquisar;
     cedulaEleitoral auxiliar;
 
     /*Verifico se o titulo já votou para está categoria.*/
@@ -123,7 +126,7 @@ unsigned int cadastraVotoVereadorTHLista(TabelaLista tabela, cedulaEleitoral ced
 
     /*Atribui o valor para o tipoVoto que guardará as informações para apuração..*/
     voto.numeroCandidato = cedula.votoVereador;
-    voto.qtdDeVotosCandidato = 0;
+    voto.qtdDeVotosCandidato = 1;
     cedula.flagVereador = 1; /*Sinaliza que o candidato possui votos.*/
 
     /*Verificar se o eleitor já está cadastrado (Se votou em outra categoria). Caso
@@ -137,8 +140,10 @@ unsigned int cadastraVotoVereadorTHLista(TabelaLista tabela, cedulaEleitoral ced
          inserirItemTabelaLista(tabela,cedula);
 
     /*Cadastra o voto. Caso ocorra algum erro, retorna 0.*/
-    if(!inserirItemTHashLinear(vereador, voto)) return 0;
-
+    if(pesquisarItemTHashLinear(vereador,voto.numeroCandidato,&pesquisar))
+        atualizarItemTHashLinear(vereador,voto.numeroCandidato);
+    else
+        inserirItemTHashLinear(vereador,voto);
     return 1;
 }
 
@@ -176,7 +181,7 @@ unsigned int pesquisarVotoPrefeitoTHArvore(HashTabelaArvore tabela, tipoChave ch
   votos, a cedula contendo seu titulo e seu voto e a tabela na qual
   serao armazenados os votos.*/
 unsigned int cadastraVotoPrefeitoTHArvore(HashTabelaArvore tabela, cedulaEleitoral cedula, THashLinear prefeito){
-    tipoVoto voto;
+    tipoVoto voto, pesquisar;
     cedulaEleitoral auxiliar;
 
     /*Verifico se o titulo já votou para está categoria.*/
@@ -184,7 +189,7 @@ unsigned int cadastraVotoPrefeitoTHArvore(HashTabelaArvore tabela, cedulaEleitor
 
     /*Atribui o valor para o tipoVoto que guardará as informações para apuração..*/
     voto.numeroCandidato = cedula.votoPrefeito;
-    voto.qtdDeVotosCandidato = 0;
+    voto.qtdDeVotosCandidato = 1;
     cedula.votoPrefeito = 1; /*Sinaliza que o candidato possui um voto.*/
 
     /*Verificar se o eleitor já está cadastrado (Se votou em outra categoria). Caso
@@ -198,7 +203,10 @@ unsigned int cadastraVotoPrefeitoTHArvore(HashTabelaArvore tabela, cedulaEleitor
          insereItemTabelaArvore(tabela,cedula);
 
     /*Cadastra o voto. Caso ocorra algum erro, retorna 0.*/
-    if(!inserirItemTHashLinear(prefeito, voto)) return 0;
+    if(pesquisarItemTHashLinear(prefeito, voto.numeroCandidato,&pesquisar))
+        atualizarItemTHashLinear(prefeito,voto.numeroCandidato);
+    else
+        inserirItemTHashLinear(prefeito,voto);
 
     return 1;
 }
@@ -209,7 +217,7 @@ unsigned int cadastraVotoPrefeitoTHArvore(HashTabelaArvore tabela, cedulaEleitor
   votos, a cedula contendo seu titulo e seu voto e a tabela na qual
   serao armazenados os votos.*/
 unsigned int cadastraVotoVereadorTHArvore(HashTabelaArvore tabela, cedulaEleitoral cedula, THashLinear vereador){
-    tipoVoto voto;
+    tipoVoto voto, pesquisar;
     cedulaEleitoral auxiliar;
 
     /*Verifico se o titulo já votou para está categoria.*/
@@ -217,7 +225,7 @@ unsigned int cadastraVotoVereadorTHArvore(HashTabelaArvore tabela, cedulaEleitor
 
     /*Atribui o valor para o tipoVoto que guardará as informações para apuração..*/
     voto.numeroCandidato = cedula.votoVereador;
-    voto.qtdDeVotosCandidato = 0;
+    voto.qtdDeVotosCandidato = 1;
     cedula.flagVereador = 1; /*Sinaliza que o candidato possui um voto.*/
 
     /*Verificar se o eleitor já está cadastrado (Se votou em outra categoria). Caso
@@ -231,7 +239,10 @@ unsigned int cadastraVotoVereadorTHArvore(HashTabelaArvore tabela, cedulaEleitor
          insereItemTabelaArvore(tabela,cedula);
 
     /*Cadastra o voto. Caso ocorra algum erro, retorna 0.*/
-    if(!inserirItemTHashLinear(vereador, voto)) return 0;
+    if(pesquisarItemTHashLinear(vereador,voto.numeroCandidato,&pesquisar))
+        atualizarItemTHashLinear(vereador,voto.numeroCandidato);
+    else
+        inserirItemTHashLinear(vereador,voto);
 
     return 1;
 }
@@ -271,7 +282,7 @@ unsigned int pesquisarVotoPrefeitoTHDupla(THashDupla tabela, tipoChave chave){
   votos, a cedula contendo seu titulo e seu voto e a tabela na qual
   serao armazenados os votos.*/
 unsigned int cadastraVotoPrefeitoTHDupla(THashDupla tabela, cedulaEleitoral cedula, THashLinear prefeito){
-    tipoVoto voto;
+    tipoVoto voto, pesquisar;
     cedulaEleitoral auxiliar;
 
     /*Verifico se o titulo já votou para está categoria.*/
@@ -279,7 +290,7 @@ unsigned int cadastraVotoPrefeitoTHDupla(THashDupla tabela, cedulaEleitoral cedu
 
     /*Atribui o valor para o tipoVoto que guardará as informações para apuração..*/
     voto.numeroCandidato = cedula.votoPrefeito;
-    voto.qtdDeVotosCandidato = 0;
+    voto.qtdDeVotosCandidato = 1;
     cedula.votoPrefeito = 1; /*Sinaliza que o candidato possui um voto.*/
 
     /*Verificar se o eleitor já está cadastrado (Se votou em outra categoria). Caso
@@ -292,8 +303,11 @@ unsigned int cadastraVotoPrefeitoTHDupla(THashDupla tabela, cedulaEleitoral cedu
     else
          inserirItemTHashDupla(tabela,cedula);
 
-    /*Cadastra o voto. Caso ocorra algum erro, retorna 0.*/
-    if(!inserirItemTHashLinear(prefeito, voto)) return 0;
+     /*Cadastra o voto. Caso ocorra algum erro, retorna 0.*/
+    if(pesquisarItemTHashLinear(prefeito, voto.numeroCandidato,&pesquisar))
+        atualizarItemTHashLinear(prefeito,voto.numeroCandidato);
+    else
+        inserirItemTHashLinear(prefeito,voto);
 
     return 1;
 }
@@ -304,7 +318,7 @@ unsigned int cadastraVotoPrefeitoTHDupla(THashDupla tabela, cedulaEleitoral cedu
   votos, a cedula contendo seu titulo e seu voto e a tabela na qual
   serao armazenados os votos.*/
 unsigned int cadastraVotoVereadorTHDupla(THashDupla tabela, cedulaEleitoral cedula, THashLinear vereador){
-    tipoVoto voto;
+    tipoVoto voto, pesquisar;
     cedulaEleitoral auxiliar;
 
     /*Verifico se o titulo já votou para está categoria.*/
@@ -312,7 +326,7 @@ unsigned int cadastraVotoVereadorTHDupla(THashDupla tabela, cedulaEleitoral cedu
 
     /*Atribui o valor para o tipoVoto que guardará as informações para apuração..*/
     voto.numeroCandidato = cedula.votoVereador;
-    voto.qtdDeVotosCandidato = 0;
+    voto.qtdDeVotosCandidato = 1;
     cedula.flagVereador = 1; /*Sinaliza que o candidato possui um voto.*/
 
     /*Verificar se o eleitor já está cadastrado (Se votou em outra categoria). Caso
@@ -325,8 +339,11 @@ unsigned int cadastraVotoVereadorTHDupla(THashDupla tabela, cedulaEleitoral cedu
     else
          inserirItemTHashDupla(tabela,cedula);
 
-    /*Cadastra o voto. Caso ocorra algum erro, retorna 0.*/
-    if(!inserirItemTHashLinear(vereador, voto)) return 0;
+     /*Cadastra o voto. Caso ocorra algum erro, retorna 0.*/
+    if(pesquisarItemTHashLinear(vereador,voto.numeroCandidato,&pesquisar))
+        atualizarItemTHashLinear(vereador,voto.numeroCandidato);
+    else
+        inserirItemTHashLinear(vereador,voto);
 
     return 1;
 }
