@@ -29,7 +29,7 @@ void votacao(void *tabela, unsigned int tipoDeTabela, THashLinear prefeito, THas
                 fprintf(arquivoSaida,"Voto computado, candidato %d possui %d voto(s).\n", voto.numeroCandidato, voto.qtdDeVotosCandidato);
             }
             else
-                fprintf(arquivoSaida,"%s","Voto n„o computado.\n");
+                fprintf(arquivoSaida,"%s","Voto n√£o computado.\n");
         break;
         case 1:
             printf("\nVoto: ");
@@ -41,7 +41,7 @@ void votacao(void *tabela, unsigned int tipoDeTabela, THashLinear prefeito, THas
                 fprintf(arquivoSaida,"Voto computado, candidato %d possui %d voto(s).\n", voto.numeroCandidato, voto.qtdDeVotosCandidato);
             }
                 else
-                    fprintf(arquivoSaida,"%s","Voto n„o computado.\n");
+                    fprintf(arquivoSaida,"%s","Voto n√£o computado.\n");
         break;
     }
 }//votacao()
@@ -57,7 +57,7 @@ void* inicializaTabela(unsigned int tipo, unsigned int tamanho){
     return NULL;
 }
 
-//Insere um novo voto para prefeito caso o eleitor n„o tenha votado para esta categoria.
+//Insere um novo voto para prefeito caso o eleitor n√£o tenha votado para esta categoria.
 int inserirVotoPrefeito(void *tabela, unsigned int tipo, cedulaEleitoral cedula, THashLinear prefeito){
     switch(tipo){
         case 1: if(cadastraVotoPrefeitoTHDupla(tabela,cedula, prefeito)) return 1; return 0;
@@ -67,7 +67,7 @@ int inserirVotoPrefeito(void *tabela, unsigned int tipo, cedulaEleitoral cedula,
     return 0;
 }
 
-//Insere um novo voto para vereador caso o eleitor n„o tenha votado para esta categoria.
+//Insere um novo voto para vereador caso o eleitor n√£o tenha votado para esta categoria.
 int inserirVotoVereador(void *tabela, unsigned int tipo, cedulaEleitoral cedula, THashLinear vereador){
     switch(tipo){
         case 1: if(cadastraVotoVereadorTHDupla(tabela,cedula, vereador)) return 1; return 0;
@@ -87,7 +87,17 @@ int removerEleitor(void *tabela, unsigned int tipo, cedulaEleitoral cedula, THas
     return 0;
 }
 
-//Verifica a tabela que foi utilizada pelo seu tipo, desaloca o espaÁo reservado e para as tabelas de prefeito e vereador.
+void apuracao(THashLinear prefeito, THashLinear vereador){
+    unsigned int classeCandidato, tamanhoRanck;
+
+    printf("tipo: ");
+    scanf("%d",&classeCandidato);
+    printf("Tamanho Ranck: ");
+    scanf("%d",&tamanhoRanck);
+    apurarVotos(prefeito,vereador,classeCandidato,tamanhoRanck);
+}
+
+//Verifica a tabela que foi utilizada pelo seu tipo, desaloca o espa√ßo reservado e para as tabelas de prefeito e vereador.
 void terminaTabelasEleicao(void *tabela, unsigned int tipo, THashLinear prefeito, THashLinear vereador){
     switch(tipo){
         case 1: terminarTHashDupla(tabela); break;
