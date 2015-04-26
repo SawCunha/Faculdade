@@ -12,15 +12,15 @@ void votacao(void *tabela, unsigned int tipoDeTabela, THashLinear prefeito, THas
     cedula.flagVereador = 0;
     tipoVoto voto;
 
-    printf("\nTipo: ");
+    //Lê o tipo de voto.
     fscanf(arquivoEntrada,"%d",&opcao);
 
-    printf("\nTitulo: ");
+    //Lê o titulo de eleitor.
     fscanf(arquivoEntrada, "%s", cedula.tituloEleitor);
 
     switch(opcao){
         case 0:
-            printf("\nVoto: ");
+            //Lê o voto.
             fscanf(arquivoEntrada,"%d",&cedula.votoPrefeito);
             cedula.flagPrefeito = 1;
 
@@ -32,7 +32,7 @@ void votacao(void *tabela, unsigned int tipoDeTabela, THashLinear prefeito, THas
                 fprintf(arquivoSaida,"%s","Voto não computado.\n");
         break;
         case 1:
-            printf("\nVoto: ");
+            //Lê o voto.
             fscanf(arquivoEntrada,"%d",&cedula.votoVereador);
             cedula.flagVereador = 1;
 

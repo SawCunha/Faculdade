@@ -135,6 +135,7 @@ int removerItemTHashLinear(THashLinear tabela, unsigned int chave, tipoVoto *vot
     return 0;
 }/*int removerItemTHashLinear(THashLinear tabela, unsigned int chave, tipoVoto *voto)*/
 
+
 /*Libera a memória alocada dinâmicamente para a criação da tabela.*/
 void terminarTHashLinear(THashLinear tabela){
     free(tabela->votos);

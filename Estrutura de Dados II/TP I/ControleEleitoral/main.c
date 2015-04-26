@@ -38,7 +38,7 @@ int main()
     vereador = criarTHashLinear(tamTabVereador);
 
     do{
-        printf("\nOpcao: ");
+        //Lê a operação que será processada
         fscanf(arquivoEntrada,"%d",&operacao);
         setbuf(stdin, NULL);
         switch(operacao){
