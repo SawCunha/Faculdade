@@ -19,8 +19,10 @@ typedef tipoTHashLinear *THashLinear;
 
 THashLinear criarTHashLinear(unsigned int);
 int inserirItemTHashLinear(THashLinear, tipoVoto);
+int atualizarItemTHashLinear(THashLinear tabela, unsigned int numeroCandidato);
 int pesquisarItemTHashLinear(THashLinear, unsigned int, tipoVoto*);
 int removerItemTHashLinear(THashLinear, unsigned int, tipoVoto*);
+
 void terminarTHashLinear(THashLinear);
 
 #endif
